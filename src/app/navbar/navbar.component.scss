@@ -1,0 +1,11 @@
+.app-navbar {
+  background: #002754;
+
+  .nav-link.active-nav-link {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-link.active-nav-link:not(.disabled) {
+    color: rgba(255, 158, 13, 1);
+  }
+}

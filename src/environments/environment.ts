@@ -6,6 +6,17 @@ export const environment = {
   production: false
 };
 
+const apiUrls = {
+  production: "https://sheltered-fortress-64728.herokuapp.com",
+  development: "http://localhost:4741"
+};
+
+const apiUrl = environment.production
+  ? apiUrls.production
+  : apiUrls.development;
+
+export default apiUrl;
+
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

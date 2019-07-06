@@ -1,0 +1,73 @@
+<div class="app-navbar">
+  <!-- Navbar -->
+  <mdb-navbar
+    SideClass="navbar navbar-expand-lg navbar-dark"
+    [containerInside]="false"
+  >
+    <!-- Navbar brand -->
+    <mdb-navbar-brand>
+      <a
+        class="navbar-brand"
+        routerLink="/home"
+        routerLinkActive="active-nav-link"
+        >Testing</a
+      >
+    </mdb-navbar-brand>
+
+    <!-- Collapsible content -->
+    <links>
+      <!-- align left -->
+      <ul class="navbar-nav mr-auto nav-flex-icons">
+        <li class="home nav-item">
+          <a
+            class="nav-link"
+            routerLink="/home"
+            routerLinkActive="active-nav-link"
+          >
+            <mdb-icon fas icon="home"></mdb-icon>
+          </a>
+        </li>
+      </ul>
+      <!-- align right -->
+      <ul class="navbar-nav ml-auto nav-flex-icons">
+        <li class="nav-item" *ngIf="user">
+          <div class="nav-link disabled active-nav-link">
+            Welcome! {{ user.email }}
+          </div>
+        </li>
+        <li class="nav-item" *ngIf="user">
+          <a
+            class="nav-link"
+            routerLink="/change-password"
+            routerLinkActive="active-nav-link"
+          >
+            Change Password
+            <mdb-icon fas icon="exchange-alt"></mdb-icon>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="user">
+          <a
+            class="nav-link"
+            routerLink="/sign-out"
+            routerLinkActive="active-nav-link"
+          >
+            Logout
+            <mdb-icon fas icon="sign-out-alt"></mdb-icon>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="!user">
+          <a
+            class="nav-link"
+            routerLink="/sign-in"
+            routerLinkActive="active-nav-link"
+          >
+            Login
+            <mdb-icon fas icon="sign-in-alt"></mdb-icon>
+          </a>
+        </li>
+      </ul>
+    </links>
+    <!-- Collapsible content -->
+  </mdb-navbar>
+  <!-- /.Navbar -->
+</div>

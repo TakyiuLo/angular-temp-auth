@@ -1,0 +1,56 @@
+<!-- Form -->
+<form
+  class="text-center app-sign-in shadow-sm rounded p-3"
+  [formGroup]="signInForm"
+  (ngSubmit)="signIn(null)"
+>
+  <h3 class="d-block border p-3">Login</h3>
+
+  <!-- Email -->
+  <div class="md-form">
+    <input
+      type="email"
+      id="loginEmail"
+      class="form-control"
+      formControlName="email"
+      autocomplete="email"
+      mdbInput
+    />
+    <label for="loginEmail">E-mail</label>
+  </div>
+
+  <!-- Password -->
+  <div class="md-form">
+    <input
+      type="password"
+      id="loginPassword"
+      class="form-control"
+      formControlName="password"
+      autocomplete="password"
+      mdbInput
+    />
+    <label for="loginPassword">Password</label>
+  </div>
+
+  <!-- Sign in button -->
+  <button
+    mdbBtn
+    block="true"
+    class="my-4"
+    style="background: #01579b;"
+    type="submit"
+    name="signInSubmit"
+    mdbWavesEffect
+  >
+    Sign In
+  </button>
+
+  <!-- Register -->
+  <p>
+    Not a member?
+    <a href="" routerLink="/sign-up" routerLinkActive="active-nav-link">
+      Register
+    </a>
+  </p>
+</form>
+<!-- Form -->
