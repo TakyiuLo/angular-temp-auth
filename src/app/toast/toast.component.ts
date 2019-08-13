@@ -8,7 +8,8 @@ import {
   transition,
   keyframes,
   query,
-  stagger
+  stagger,
+  group
 } from "@angular/animations";
 
 @Component({
@@ -17,39 +18,38 @@ import {
   styleUrls: ["./toast.component.scss"],
   animations: [
     trigger("listAnimation", [
-      transition("* => *", [
-        query(
-          ":leave",
-          [stagger(100, [animate("0.2s", style({ opacity: 0 }))])],
-          { optional: true }
-        ),
-        query(
-          ":enter",
-          [
-            style({
-              opacity: 0,
-              transform: "translateX(40px)",
-              height: "40px"
-            }),
-            stagger(100, [
+      transition(
+        "* => *",
+        group([
+          query(
+            ":leave",
+            [stagger(100, [animate("0.2s", style({ opacity: 0 }))])],
+            { optional: true }
+          ),
+          query(
+            ":enter ~ .toastr",
+            [
+              style({ transform: "translateY(-100px)" }),
+              animate(".1s linear", style({ transform: "none" }))
+            ],
+            { optional: true }
+          ),
+          query(
+            ":enter",
+            [
+              style({ opacity: 0, transform: "translate(40px)" }),
               animate(
-                "0.1s ease-out",
-                style({
-                  height: "auto"
-                })
-              ),
-              animate(
-                "0.2s ease-out",
+                ".2s .1s ease-out",
                 style({
                   opacity: 1,
                   transform: "translateX(0px)"
                 })
               )
-            ])
-          ],
-          { optional: true }
-        )
-      ])
+            ],
+            { optional: true }
+          )
+        ])
+      )
     ])
   ]
 })
